@@ -11,7 +11,7 @@ body {
   font-family: "Zilla Slab", serif;
 }
 
-.box-container {
+.box-container1 {
   width: 70%;
   margin: 0 auto;
 }
@@ -34,6 +34,10 @@ body {
   margin-bottom: 30px;
 }
 
+.btn-width{
+  background-color: lightseagreen;
+  width: 60px;
+}
 #display {
   height: 100px;
   display: flex;
@@ -185,7 +189,7 @@ button {
   #histories{
     grid-template-columns: repeat(1,1fr);
   }
-  .box-container {
+  .box-container1 {
     padding: 0 20px;
     width: 100%;
   }
