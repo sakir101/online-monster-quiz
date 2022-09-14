@@ -182,9 +182,7 @@ button {
 }
 
 @media only screen and (max-width: 700px) {
-  #histories{
-    grid-template-columns: repeat(1,1fr);
-  }
+ 
   .box-container {
     padding: 0 20px;
     width: 100%;
