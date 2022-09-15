@@ -10,6 +10,7 @@ let userText = "";
 let errorCount = 0;
 let startTime;
 let questionText = "";
+let charCount = 0;
 
 // Load and display question
 fetch("./texts.json")
@@ -43,9 +44,11 @@ const typeController = (e) => {
   const newLetterCorrect = validate(newLetter);
 
   if (newLetterCorrect) {
+    charCount = charCount+1;
     display.innerHTML += `<span class="green">${newLetter === " " ? "▪" : newLetter}</span>`;
   } else {
     errorCount = errorCount+1;
+    charCount = charCount+1;
     display.innerHTML += `<span class="red">${newLetter === " " ? "▪" : newLetter}</span>`;
   }
 
@@ -69,7 +72,10 @@ const gameOver = () => {
   // so total time taken is current time - start time
   const finishTime = new Date().getTime();
   const timeTaken = (finishTime - startTime) / 1000;
-
+  let t = timeTaken/60;
+  let typeSpeed = (charCount/5)/t;
+  typeSpeed = typeSpeed.toFixed(2);
+  console.log(charCount);
   // show result modal
   resultModal.innerHTML = "";
   resultModal.classList.toggle("hidden");
@@ -86,12 +92,15 @@ const gameOver = () => {
     <button onclick="closeModal()">Close</button>
   `;
 
-  addHistory(questionText, timeTaken, errorCount);
+  addHistory(questionText, timeTaken, errorCount, typeSpeed);
 
   // restart everything
   startTime = null;
   errorCount = 0;
   userText = "";
+  typeSpeed = 0;
+  t=0;
+  charCount = 0;
   display.classList.add("inactive");
 };
 
@@ -108,7 +117,7 @@ const start = () => {
   countdownOverlay.style.display = "flex";
 
   const startCountdown = setInterval(() => {
-    countdownOverlay.innerHTML = `<h1>${count}</h1>`;
+    countdownOverlay.innerHTML = `<h1 class="display-2 fw-bold">${count}</h1>`;
 
     // finished timer
     if (count === 0) {
