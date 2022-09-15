@@ -75,7 +75,6 @@ const gameOver = () => {
   let t = timeTaken/60;
   let typeSpeed = (charCount/5)/t;
   typeSpeed = Math.round(typeSpeed);
-  console.log(charCount);
   // show result modal
   resultModal.innerHTML = "";
   resultModal.classList.toggle("hidden");
