@@ -74,7 +74,7 @@ const gameOver = () => {
   const timeTaken = (finishTime - startTime) / 1000;
   let t = timeTaken/60;
   let typeSpeed = (charCount/5)/t;
-  typeSpeed = typeSpeed.toFixed(2);
+  typeSpeed = Math.round(typeSpeed);
   console.log(charCount);
   // show result modal
   resultModal.innerHTML = "";
