@@ -193,6 +193,10 @@ button {
     padding: 0 20px;
     width: 100%;
   }
+
+  #question{
+    font-size: 13px;
+  }
   .card {
     flex-direction: column;
   }
